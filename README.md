@@ -1,4 +1,4 @@
-#Frontend Nanodegree Optimization project
+# Frontend Nanodegree Optimization project
 
 1. to view index.html on a local web server:
 
@@ -17,7 +17,7 @@
 
 4. Copy the public URL ngrok gives you and try running it through PageSpeed Insights!
 
-###Optimizations made in index.html
+### Optimizations made in index.html
 
 1. Optimized pizzeria.jpg into two smaller photos and optimized profilepic.jpg.
 2. removed inline script for analystics.js (one link was sufficient, did not need duplicate with the script).
@@ -26,7 +26,7 @@
 5. Optimized CSS delivery by moving to the end of html.
 6. Minified CSS and HTML.
 
-###Optimizations made in views/js/main.js for pizza.html
+### Optimizations made in views/js/main.js for pizza.html
 
 
 1. Optimized pizzeria images.
