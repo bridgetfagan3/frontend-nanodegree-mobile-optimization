@@ -1,4 +1,4 @@
-# Frontend Nanodegree Optimization project
+# Frontend Nanodegree Optimization Project
 
 1. to view index.html on a local web server:
 
