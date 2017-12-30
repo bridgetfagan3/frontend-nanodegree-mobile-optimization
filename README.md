@@ -35,6 +35,5 @@
   - changed left to TransformX
 3. added will-change: transform to .mover in style.css
 4. called for size of array before loops
-5. got number of col and rows to have minimum visible requirement (no need to transform all the pizzas)
-
+5. got number of col and rows to have minimum visible requirement (no need to transform all the pizzas
 6. took out the need to calculate dx and newwidth in the for loop--all pizzas are the same size
