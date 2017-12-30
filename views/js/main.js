@@ -449,9 +449,13 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    // combine pizzas into a single array
     var pizzas = document.getElementsByClassName("randomPizzaContainer");
+    //width remains constant, so having the first width is enough
     var dx = determineDx(pizzas[0], size);
+    //calculate the new size
     var newwidth = (pizzas[0].offsetWidth + dx) + 'px';
+    //length for the loop
     var pizzasLength = pizzas.length;
     for (var i = 0; i < pizzasLength; i++) {
       document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
@@ -505,13 +509,15 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  // get the scroll value one time, instead of looping through 200 times
   var visibleH = window.innerHeight;
   var visibleW = window.innerWidth;
   var scroll = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
-    // document.body.scrollTop is no longer supported in Chrome.
     var phase = Math.sin(scroll + (i % 5));
+    //Calculate the new variable to be translated in translateX
     var posNew = Math.floor(100 * phase);
+    //Apply TransformX + posNew to teh element[i]
     items[i].style.webkitTransform = 'translateX(' + posNew + 'px)';
   }
 
@@ -531,6 +537,7 @@ window.requestAnimationFrame(updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
+  //get the visible size
   var visibleH = window.innerHeight;
   var visibleW = window.innerWidth;
   var s = 256;
@@ -549,6 +556,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
+    //add calculated style.left that will not change.
     elem.style.left = Math.floor(elem.basicLeft + 100 * (Math.sin(i % 6))) + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
