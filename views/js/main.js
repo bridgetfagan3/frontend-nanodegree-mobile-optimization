@@ -458,7 +458,7 @@ var resizePizzas = function(size) {
     //length for the loop
     var pizzasLength = pizzas.length;
     for (var i = 0; i < pizzasLength; i++) {
-      document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
+      pizzas[i].style.width = newwidth;
     }
   }
 
@@ -512,7 +512,7 @@ function updatePositions() {
   // get the scroll value one time, instead of looping through 200 times
   var visibleH = window.innerHeight;
   var visibleW = window.innerWidth;
-  var scroll = document.body.scrollTop / 1250;
+  var scroll = (document.documentElement.scrollTop || document.body.scrollTop) / 1250;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(scroll + (i % 5));
     //Calculate the new variable to be translated in translateX
@@ -542,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var visibleW = window.innerWidth;
   var s = 256;
   // Number of cols based on what is visble.
-  var cols = Math.floor(visibleW/s)+1;
+  var cols = 8;
   // Number of rows based on what is visble.
   var rows = Math.floor(visibleH/s)+1;
   // Number of pizzas based on cols and rows
@@ -557,7 +557,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     //add calculated style.left that will not change.
-    elem.style.left = Math.floor(elem.basicLeft + 100 * (Math.sin(i % 6))) + 'px';
+    elem.style.left = elem.basicLeft + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
